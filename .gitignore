@@ -1,0 +1,16 @@
+# Python
+
+__pycache__
+*.py[cod]
+.python-version
+.venv
+
+# Media Files
+## (Used for Testing)
+
+*.mkv
+*.mov
+*.mp4
+*.srt
+*.idx
+*.sub
