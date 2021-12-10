@@ -9,7 +9,6 @@ import subprocess
 #----Pip Library Imports-----------------------------------------------------#
 
 import inquirer
-from blessed import Terminal
 
 #----Internal Imports------------0-------------------------------------------#
 
@@ -59,8 +58,6 @@ def filter_probe(raw_probe: str) -> list[str] | None:
 
 def ffprobe():
 
-    terminal = Terminal()
-
     questions = [
         inquirer.Path(
             name = "path",
@@ -90,7 +87,7 @@ def ffprobe():
 
         if len(paths) == 0:
 
-            print(f"\n{terminal.red}>>{terminal.normal}{terminal.bold} No files matching pattern \"{responses['pattern']}\" were found in directory \"{responses['path']}\".")
+            print(f"\n{util.ERROR_PREFIX} No files matching pattern \"{responses['pattern']}\" were found in directory \"{responses['path']}\".")
 
         else:
 
@@ -104,7 +101,7 @@ def ffprobe():
 
             if len(filtered_probes) == 0:
 
-                print(f"\n{terminal.red}>>{terminal.normal}{terminal.bold} No probable files matching pattern \"{responses['pattern']}\" were found in directory \"{responses['path']}\".")
+                print(f"\n{util.ERROR_PREFIX} No probable files matching pattern \"{responses['pattern']}\" were found in directory \"{responses['path']}\".")
 
             else:
 
