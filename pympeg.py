@@ -1,20 +1,23 @@
-#----Standard Library Imports------------------------------------------------#
+# --- Standard Library Imports ------------------------------------------------------- #
 
 import contextlib
 
-#----Pip Library Imports-----------------------------------------------------#
+# --- Pip Library Imports ------------------------------------------------------------ #
 
 import inquirer
 
-#----Internal Imports--------------------------------------------------------#
+# --- Internal Imports --------------------------------------------------------------- #
 
 from ffmpeg import ffmpeg
 from ffprobe import ffprobe
 
-#----Main Execution----------------------------------------------------------#
+# --- Main Execution------------------------------------------------------------------ #
 
 if __name__ == "__main__":
 
     with contextlib.suppress(KeyboardInterrupt):
 
-        inquirer.list_input("Select the type of operation you would like to execute", choices = [(ffmpeg.__name__, ffmpeg), (ffprobe.__name__, ffprobe)])()
+        question = "Select the type of operation you would like to execute"
+        choices = [(ffmpeg.__name__, ffmpeg), (ffprobe.__name__, ffprobe)]
+
+        inquirer.list_input(question, choices=choices)()
